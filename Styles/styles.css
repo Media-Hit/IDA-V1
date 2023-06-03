@@ -1,0 +1,54 @@
+:root{
+    /* Main Colors*/
+    --White: #FFFFFF;
+    --Black: #000000;
+    --Media-Hit-Blue: #4280f5;
+    --Media-Hit-Pink: #F5427E;
+    --Media-Hit-Grey: #606060;
+
+    /* Secondary Colors*/
+    --Media-Hit-Dark-Blue: #0068CE;
+    --Media-Hit-Light-Blue: #4E9BFB;
+    --Media-Hit-Light-Grey: #EFF2F7;
+    --Media-Hit-Dark-Grey: #4F5050;
+    --IDA-Fondo-Gris: #2e3e4e;
+    --IDA-Texto-Sobre-Fondo: #b6bcc2;
+
+    /*Especial Colors*/
+    --Media-Hit-Green: #4EE32D;
+    --Media-Hit-Red: #F53A31;
+    --Media-Hit-Yellow: #FFD926;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+.sidebar {
+    display: grid;
+    grid-template-rows: auto 1fr auto ;
+    width: 170px;
+    height: 100vh;
+    background-color: var(--IDA-Fondo-Gris);
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.sidebar-logo {
+    width: 105px;
+}
+
+.sidebar-items-container {
+    padding: 0;s
+}
+
+.side-bar-category {
+    list-style: none;
+    padding: 0;
+    color: var(--IDA-Texto-Sobre-Fondo);
+    font-size: 14px;
+    padding-top: 10px;
+}
