@@ -42,7 +42,7 @@ body {
 }
 
 .sidebar-items-container {
-    padding: 0;s
+    padding: 0;
 }
 
 .side-bar-category {
@@ -51,4 +51,16 @@ body {
     color: var(--IDA-Texto-Sobre-Fondo);
     font-size: 14px;
     padding-top: 10px;
+}
+
+.sidebar-items-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-items-container a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
