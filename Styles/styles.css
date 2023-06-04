@@ -26,6 +26,9 @@ body {
     padding: 0;
   }
 
+
+/* Menú Principal */
+
 .sidebar {
     display: grid;
     grid-template-rows: auto 1fr auto ;
@@ -51,6 +54,7 @@ body {
     color: var(--IDA-Texto-Sobre-Fondo);
     font-size: 14px;
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .sidebar-items-container {
@@ -58,9 +62,23 @@ body {
     flex-direction: column;
 }
 
-.sidebar-items-container a {
+.item-icon {
+    height: 18px;
+    padding-top: 4px;
+}
+
+.item-box {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--IDA-Texto-Sobre-Fondo);
+    padding-top: 2px;
+    cursor: pointer;
+}
+
+.item-text {
+    padding-left: 6px;
+    font-size: 14px;
 }
