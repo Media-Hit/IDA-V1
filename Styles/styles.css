@@ -1,3 +1,4 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
 :root{
     /* Main Colors*/
     --White: #FFFFFF;
@@ -11,14 +12,22 @@
     --Media-Hit-Light-Blue: #4E9BFB;
     --Media-Hit-Light-Grey: #EFF2F7;
     --Media-Hit-Dark-Grey: #4F5050;
-    --IDA-Fondo-Gris: #2e3e4e;
-    --IDA-Texto-Sobre-Fondo: #b6bcc2;
 
     /*Especial Colors*/
     --Media-Hit-Green: #4EE32D;
     --Media-Hit-Red: #F53A31;
     --Media-Hit-Yellow: #FFD926;
 
+    /* Interface Colors */
+    --IDA-Body-Grey-Background: #E8E8E8;
+    --IDA-Tittles-Color: #2e3e4e;
+    --IDA-Fondo-Gris: #2e3e4e;
+    --IDA-Texto-Sobre-Fondo: #b6bcc2;
+
+}
+
+.box-shadow {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -146,4 +155,59 @@ body {
 .sidebar-profile-position {
     font-size: 12px;
     color: #506d89;
+}
+
+
+
+/* Página de Movimientos */
+
+.movimientos-page {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 30px;
+    background-color: var(--IDA-Body-Grey-Background);
+    min-height: 1fr;
+    padding: 30px;
+}
+
+.calendar-container {
+    background-color: var(--White);
+    padding: 10px 30px 20px;
+    height: auto;
+}
+
+.calendar-container header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--Media-Hit-Grey);
+    color: var(--IDA-Tittles-Color);
+}
+
+.calendar-left-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.current-month {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+.current-year {
+    font-size: 1.45rem;
+    font-weight: 200;
+}
+
+
+.calendar-box ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+
+.movimientos-list-container {
+    background-color: var(--White);
 }
