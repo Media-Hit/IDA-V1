@@ -19,10 +19,11 @@
     --Media-Hit-Yellow: #FFD926;
 
     /* Interface Colors */
-    --IDA-Body-Grey-Background: #E8E8E8;
+    --IDA-Body-Grey-Background: #EFF2F7;
     --IDA-Tittles-Color: #2e3e4e;
     --IDA-Fondo-Gris: #2e3e4e;
     --IDA-Texto-Sobre-Fondo: #b6bcc2;
+    --IDA-Muted-Grey: #00000030;
 
 }
 
@@ -180,34 +181,113 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--Media-Hit-Grey);
+    border-bottom: 1px solid #00000021;
     color: var(--IDA-Tittles-Color);
+    padding: 10px 0;
 }
 
 .calendar-left-header {
     display: flex;
     align-items: center;
-    gap: 20px;
 }
 
 .current-month {
     font-size: 1.45rem;
     font-weight: 500;
+    padding: 5px 16px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.current-month:hover {
+    background-color: var(--Media-Hit-Light-Grey);
+}
+
+.calendar-left-header i {
+    font-size: 20px;
+    height: 38px;
+    width: 38px;
+    text-align: center;
+    line-height: 42px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calendar-left-header i:hover {
+    background-color: var(--Media-Hit-Light-Grey);
 }
 
 .current-year {
     font-size: 1.45rem;
     font-weight: 200;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 16px;
+    margin: 0;
+
 }
 
+.current-year:hover {
+    background-color: var(--Media-Hit-Light-Grey);
+}
+
+.movimientos-list-container {
+    background-color: var(--White);
+}
+
+/* Calendario */
 
 .calendar-box ul {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    padding-inline-start: 0;
+    color: var(--IDA-Tittles-Color);
+}
+.calendar-box li {
+    position: relative;
+    width: calc(100% / 7);
+    text-align: center;
 }
 
+.weeks {
+    margin-top: 24px;
+}
 
-.movimientos-list-container {
-    background-color: var(--White);
+.weeks li {
+    font-weight: 500;
+}
+
+.days li {
+    margin-top: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.days li::before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}
+
+.days li:hover::before {
+    background-color: var(--Media-Hit-Light-Grey);
+}
+
+.days li.inactive-day {
+    color: var(--IDA-Muted-Grey);
+}
+
+.days li.selected-day {
+    color: var(--White);
+}
+
+.days li.selected-day::before {
+    background-color: var(--Media-Hit-Pink);
 }
