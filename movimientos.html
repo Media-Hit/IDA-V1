@@ -11,20 +11,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="./Styles/styles.css">
+    <link rel="stylesheet" href="./Styles/movimientos.css">
+
     <script src="main.js"></script>
     <script src="movimientos.js" defer></script>
 </head>
 <body>
     <div class="movimientos-page">
-        <div class="calendar-container box-shadow">
+        <div class="calendar-container box-shadow box-padding">
             <header>
                 <div class="calendar-left-header">
                     <i class="fi fi-bs-angle-small-left"></i>
-                    <p class="current-month">Junio</p>
+                    <p class="current-month tittle">Junio</p>
                     <i class="fi fi-bs-angle-small-right"></i>
                 </div>
                 <div>
-                    <p class="current-year">2023</p>
+                    <p class="current-year tittle-light">2023</p>
                 </div>
             </header>
             <div class="calendar-box">
@@ -85,8 +87,33 @@
             </div>
 
         </div>
-        <div class="movimientos-list-container box-shadow">
-            <p>soy la lista</p>
+        <div class="movimientos-list-container box-shadow box box-padding">
+            <header>
+                <span class="tittle">Movimientos</span>
+            </header>
+            <ul class="movimientos-list">
+                <li>
+                    <div class="movimiento-first-column">
+                        <i class="fi fi-rr-shopping-cart"></i>
+                    </div>
+
+                    <div class="movimiento-second-column">
+                        <div>
+                            <p class="movimiento-list-agente">Carulla</p>
+                            <p class="movimiento-list-description">(Compras fin de semana)</p>
+                        </div>
+                        <div>
+                            <p class="movimiento-list-category">Categoría 1</p>
+                            <p class="movimiento-list-category">Categoría 2</p>
+                        </div>
+                    </div>
+
+                    <div class="movimiento-third-column">
+                            <p class="movimiento-list-date">Junio 3</p>
+                            <p class="movimiento-list-amount">$300.000</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 
