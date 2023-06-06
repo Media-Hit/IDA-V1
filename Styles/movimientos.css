@@ -4,7 +4,7 @@
 
 .movimientos-page {
     display: grid;
-    grid-template-columns: 6fr 4fr;
+    grid-template-columns: 5fr 4fr;
     gap: 30px;
     background-color: var(--IDA-Body-Grey-Background);
     min-height: 1fr;
@@ -164,4 +164,119 @@
 
 .movimientos-list-container header i:hover {
     background-color: var(--Media-Hit-Light-Grey);
+}
+
+.movimientos-list{
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.movimientos-list li {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    align-items: center;
+    list-style: none;
+    border-bottom: 1px solid #00000020;
+    padding: 1em 0;
+}
+
+
+
+.movimiento-first-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--IDA-Fondo-Gris);
+    font-size: 24px;
+    color: var(--White);
+    line-height: 8px;
+}
+
+
+
+.movimiento-second-column {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    gap: 10px;
+}
+
+.movimiento-second-column div {
+    display: flex;
+    flex-direction: row;
+    margin-top: -5px;
+}
+
+.movimiento-details {
+    align-items: flex-end;
+    padding-top: 5px;
+}
+
+.movimiento-list-agente {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--IDA-Tittles-Color);
+    margin: 0;
+    line-height: 18px;
+}
+
+.movimiento-list-description {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--IDA-Tittles-Color);
+    margin: 0;
+    padding-left: 10px;
+    color: var(--IDA-Muted-Grey);
+    font-style: italic;
+    line-height: 16px;
+
+    /* Que no haga doble línea */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* Número de líneas deseadas, en este caso, 1 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movimiento-categories {
+    align-items: flex-start;
+    gap: 10px;
+
+}
+
+.movimiento-list-category{
+    font-size: 11px;
+    background-color: var(--IDA-Muted-Grey);
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 0;
+ }
+
+
+
+.movimiento-third-column {
+    display: flex;
+    flex-direction: column;
+    margin-top: -5px;
+    padding-left: 1em;
+}
+
+.movimiento-list-date {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--IDA-Muted-Grey);
+    margin: 0;
+    line-height: 18px;
+    text-align: right;
+}
+
+.movimiento-list-amount {
+    font-size: 1rem;
+    color: var(--IDA-Tittles-Color);
+    margin: 0;
+    text-align: right;
 }
