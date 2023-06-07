@@ -13,9 +13,10 @@
 
 /* Calendario */
 
-.calendar-container {
+.calendar-flex {
+    display: flex;
+    flex-direction: column;
     background-color: var(--White);
-    height: auto;
 }
 
 .calendar-container header {
