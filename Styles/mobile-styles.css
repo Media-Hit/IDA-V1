@@ -1,3 +1,7 @@
+.main-menu-mobile {
+  display: none;
+}
+
 /* Celular */
 
 @media screen and (max-width: 800px) {
@@ -10,12 +14,41 @@
 /* Tablet */
 
 @media screen and (max-width: 1000px) {
-  .main-menu {
+  
+  body {
+      grid-template-columns: 1fr;
+      grid-template-rows: 40px 1fr;
+      height: 100vh;
+  }
+
+  .sidebar {
     display: none;
   }
 
-  body {
-      grid-template-columns: 1fr;
-      height: 100vh;
+  .main-menu {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  }
+
+  .main-menu-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--IDA-Fondo-Gris);
+    height: 20px;
+    padding: 10px 20px;
+  }
+
+  .mobile-logo {
+    max-height: auto;
+  }
+
+  .main-menu-mobile i {
+    color: var(--White);
+    font-size: 20px;
+    align-items: center;
+    cursor: pointer;
   }
 }
