@@ -4,7 +4,7 @@
 
 .movimientos-page {
     display: grid;
-    grid-template-columns: 5fr 4fr;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     background-color: var(--IDA-Body-Grey-Background);
     min-height: 1fr;
@@ -138,11 +138,10 @@
     display: flex;
     flex-direction: column;
     background-color: var(--White);
-    height: 400px;
-    max-height: 100%;
-    overflow-y: auto;
     align-items: center;
     padding: 30px 0;
+    max-height: calc(100vh - 100px) !important;
+    min-height: 100px !important;
 }
 
 .movimientos-list-container header{
@@ -176,6 +175,7 @@
 }
 
 .movimientos-list{
+    width: 100%;
     padding-inline-start: 0;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -208,8 +208,6 @@
     margin-right: 30px;
 }
 
-
-
 .movimiento-first-column {
     display: flex;
     align-items: center;
@@ -222,8 +220,6 @@
     color: var(--White);
     line-height: 8px;
 }
-
-
 
 .movimiento-second-column {
     display: flex;
@@ -254,7 +250,6 @@
 .movimiento-list-description {
     font-size: 12px;
     font-weight: 400;
-    color: var(--IDA-Tittles-Color);
     margin: 0;
     padding-left: 10px;
     color: var(--IDA-Muted-Grey);
@@ -282,9 +277,15 @@
     padding: 5px 8px;
     border-radius: 5px;
     margin: 0;
- }
 
+    /* Que no haga doble línea */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* Número de líneas deseadas, en este caso, 1 */
+    overflow: hidden;
+    text-overflow: ellipsis;
 
+}
 
 .movimiento-third-column {
     display: flex;
