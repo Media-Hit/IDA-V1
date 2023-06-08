@@ -7,7 +7,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     background-color: var(--IDA-Body-Grey-Background);
-    min-height: 1fr;
     padding: 30px;
 }
 
@@ -72,6 +71,11 @@
 .current-year:hover {
     background-color: var(--Media-Hit-Light-Grey);
 }
+
+
+.calendar-flex .icons {
+  display: none;      
+} 
 
 /* Dias */
 
@@ -164,13 +168,13 @@
 }
 
 
-.movimientos-list-container header i {
+.interface-icon {
     padding: 8px 8px 5px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.movimientos-list-container header i:hover {
+.interface-icon:hover {
     background-color: var(--Media-Hit-Light-Grey);
 }
 
@@ -309,3 +313,45 @@
     margin: 0;
     text-align: right;
 }
+
+
+
+
+/* Estilos Celular */
+
+@media screen and (max-width: 800px) {
+    .movimientos-page {
+      grid-template-columns: 1fr;
+      padding: 0;
+      gap: 10px;
+    }
+
+    .days li {
+        margin-top: 20px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .calendar-container {
+        position: sticky;
+        top: 0;
+    }
+
+    .current-year{
+        display: none;
+    }
+    .calendar-flex .icons {
+        display: block;      
+    }
+
+    .movimientos-list-flex {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .movimientos-list-flex header {
+        display: none;
+    }
+
+
+  }

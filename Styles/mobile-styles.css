@@ -1,0 +1,21 @@
+/* Celular */
+
+@media screen and (max-width: 800px) {
+  .box-padding {
+    padding: 15px;
+  }
+}
+
+
+/* Tablet */
+
+@media screen and (max-width: 1000px) {
+  .main-menu {
+    display: none;
+  }
+
+  body {
+      grid-template-columns: 1fr;
+      height: 100vh;
+  }
+}
