@@ -1,15 +1,17 @@
 const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
 const currentDate = new Date();
-let currentDay = currentDate.getDate();
+const currentDay = currentDate.getDate();
+
 let currentMonthIndex = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 updateCalendar();
+sombrearDiaSeleccionado();
 
 //Botones mes anterior y Siguiente
 const prevMonthBtn = document.querySelector("#prevMonth");
 const nextMonthBtn = document.querySelector("#nextMonth");
-const currentMonth = document.getElementById("current-month");
+const currentMonthBtn = document.getElementById("current-month");
 const currentYearElement = document.getElementById("current-year");
 
 prevMonthBtn.addEventListener("click", showPreviousMonth);
@@ -24,10 +26,11 @@ function showPreviousMonth() {
         currentYear--; // Resta 1 al año actual
       }
 
-      currentMonth.textContent = months[currentMonthIndex];
+      currentMonthBtn.textContent = months[currentMonthIndex];
       currentYearElement.textContent = currentYear;
 
       updateCalendar();
+      sombrearDiaSeleccionado();
 }
 
 function showNextMonth() {
@@ -38,57 +41,81 @@ function showNextMonth() {
         currentYear++; // suma 1 al año actual
       }
 
-      currentMonth.textContent = months[currentMonthIndex];
+      currentMonthBtn.textContent = months[currentMonthIndex];
       currentYearElement.textContent = currentYear;
 
       updateCalendar();
+      sombrearDiaSeleccionado();
 
 }
 
 //Actualización de los días del Calendario
 
 function updateCalendar() {
-    const daysList = document.querySelector(".days");
-    daysList.innerHTML = ""; // Elimina todos los elementos <li> existentes
+  const daysList = document.querySelector(".days");
+  daysList.innerHTML = ""; // Elimina todos los elementos <li> existentes
+  const currentMonth = currentMonthIndex; // Obtiene el índice del mes actual
   
-    const currentMonth = currentDate.getMonth();
-    const currentYear = currentDate.getFullYear();
-    const totalDays = getDaysInMonth(currentMonthIndex, currentYear);
-  
-    for (let day = 1; day <= totalDays; day++) {
+  const totalDays = getDaysInMonth(currentMonth, currentYear);
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay(); // Obtiene el día de la semana en que inicia el mes
+
+  // Agrega los días correspondientes al mes anterior si el mes no inicia en domingo (día 0)
+  if (firstDay > 0) {
+    const previousMonth = currentMonth === 0 ? 11 : currentMonth - 1; // Obtiene el índice del mes anterior
+    const previousYear = currentMonth === 0 ? currentYear - 1 : currentYear; // Obtiene el año del mes anterior
+    const totalDaysPreviousMonth = getDaysInMonth(previousMonth, previousYear);
+    const startDay = totalDaysPreviousMonth - (firstDay - 1); // Calcula el día en que inicia el mes anterior
+
+    for (let day = startDay; day <= totalDaysPreviousMonth; day++) {
       const li = document.createElement("li");
-      
+      li.classList.add("inactive-day");
       li.textContent = day;
       daysList.appendChild(li);
-      
-      if (day === currentDay && currentMonthIndex === currentMonth && currentYear === currentYear) {
-        li.classList.add("selected-day");
-      }
     }
   }
-  
-  
-  // Función para obtener el número de días en un mes específico
-  function getDaysInMonth(month, year) {
-    return new Date(year, month + 1, 0).getDate();
+
+  // Agrega los días del mes actual
+  for (let day = 1; day <= totalDays; day++) {
+    const li = document.createElement("li");
+
+    if (
+      day === currentDate.getDate() &&
+      currentMonth === currentDate.getMonth() &&
+      currentYear === currentDate.getFullYear()
+    ) {
+      li.classList.add("selected-day");
+    }
+
+    li.textContent = day;
+    daysList.appendChild(li);
   }
-  
+}
+
+// Función para obtener el número de días en un mes
+function getDaysInMonth(month, year) {
+  return new Date(year, month + 1, 0).getDate();
+}
+
 
 
 
 
 // Día seleccionado sombreado
 //// Obtén la lista de elementos <li> dentro del <ul> con la clase "days"
-const daysInCurrentMonth = document.querySelectorAll(".days li");
+function sombrearDiaSeleccionado() {
+  let daysInCurrentMonth = document.querySelectorAll(".days li");
 
-daysInCurrentMonth.forEach(function(day) {
-  day.addEventListener("click", function() {
-    daysInCurrentMonth.forEach(function(day) {
-      day.classList.remove("selected-day");
+  daysInCurrentMonth.forEach(function(day) {
+    day.addEventListener("click", function() {
+      daysInCurrentMonth.forEach(function(day) {
+        day.classList.remove("selected-day");
+      });
+      this.classList.add("selected-day");
     });
-    this.classList.add("selected-day");
   });
-});
+}
+
+
 
 
 //Dia Actual Seleccionado
