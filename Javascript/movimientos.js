@@ -5,8 +5,16 @@ const currentDay = currentDate.getDate();
 
 let currentMonthIndex = new Date().getMonth();
 let currentYear = new Date().getFullYear();
+
+window.addEventListener('load', function(){
+  currentMonthBtn.textContent = months[currentMonthIndex];
+  currentYearElement.textContent = currentYear;
+});
+
 updateCalendar();
 sombrearDiaSeleccionado();
+
+
 
 //Botones mes anterior y Siguiente
 const prevMonthBtn = document.querySelector("#prevMonth");
@@ -26,9 +34,8 @@ function showPreviousMonth() {
         currentYear--; // Resta 1 al año actual
       }
 
-      currentMonthBtn.textContent = months[currentMonthIndex];
-      currentYearElement.textContent = currentYear;
 
+      updateHeaderDate();
       updateCalendar();
       sombrearDiaSeleccionado();
 }
@@ -41,23 +48,28 @@ function showNextMonth() {
         currentYear++; // suma 1 al año actual
       }
 
-      currentMonthBtn.textContent = months[currentMonthIndex];
-      currentYearElement.textContent = currentYear;
-
+      updateHeaderDate();
       updateCalendar();
       sombrearDiaSeleccionado();
 
 }
 
+function updateHeaderDate() {
+  currentMonthBtn.textContent = months[currentMonthIndex];
+  currentYearElement.textContent = currentYear;
+}
+
 //Actualización de los días del Calendario
 
 function updateCalendar() {
-  const daysList = document.querySelector(".days");
+  let daysList = document.querySelector(".days");
   daysList.innerHTML = ""; // Elimina todos los elementos <li> existentes
   const currentMonth = currentMonthIndex; // Obtiene el índice del mes actual
   
   const totalDays = getDaysInMonth(currentMonth, currentYear);
   const firstDay = new Date(currentYear, currentMonth, 1).getDay(); // Obtiene el día de la semana en que inicia el mes
+
+  let firstRowInactiveDaysCount = 0;
 
   // Agrega los días correspondientes al mes anterior si el mes no inicia en domingo (día 0)
   if (firstDay > 0) {
@@ -71,6 +83,7 @@ function updateCalendar() {
       li.classList.add("inactive-day");
       li.textContent = day;
       daysList.appendChild(li);
+      firstRowInactiveDaysCount++;
     }
   }
 
@@ -89,6 +102,22 @@ function updateCalendar() {
     li.textContent = day;
     daysList.appendChild(li);
   }
+
+  //Agregar los días del mes siguiente
+    //Obtener el último día del mes actual
+    const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+
+    //Calcular los días del mes siguiente que se deben mostrar
+    
+    const daysInLastRow = 7 - (lastDayOfMonth + firstRowInactiveDaysCount) % 7;
+
+    for (let i = 1; i <= daysInLastRow; i++) {
+      const li = document.createElement('li');
+      li.textContent = i;
+      li.classList.add("inactive-day");
+      daysList.appendChild(li);
+    } 
+
 }
 
 // Función para obtener el número de días en un mes
@@ -114,7 +143,6 @@ function sombrearDiaSeleccionado() {
     });
   });
 }
-
 
 
 
