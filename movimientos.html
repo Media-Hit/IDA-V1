@@ -28,12 +28,12 @@
             <div class="calendar-flex box-shadow box-padding">
                 <header>
                     <div class="calendar-left-header">
-                        <i class="fi fi-br-angle-left interface-icon"></i>
-                        <p class="current-month tittle">Junio</p>
-                        <i class="fi fi-br-angle-right interface-icon"></i>
+                        <i id="prevMonth" class="fi fi-br-angle-left interface-icon"></i>
+                        <p id="current-month" class="current-month tittle">Junio</p>
+                        <i id="nextMonth" class="fi fi-br-angle-right interface-icon"></i>
                     </div>
                     <div>
-                        <p class="current-year tittle-light">2023</p>
+                        <p id="current-year" class="current-year tittle-light">2023</p>
                         <div class="icons">
                             <i class="fi fi-br-search interface-icon"></i>
                             <i class="fi fi-br-plus interface-icon"></i>
@@ -50,51 +50,8 @@
                         <li>Vie</li>
                         <li>Sab</li>
                     </ul>
-                    <ul class="days">
-                        <li class="inactive-day">28</li>
-                        <li class="inactive-day">29</li>
-                        <li class="inactive-day">30</li>
-                        <li class="inactive-day">31</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                        <li>6</li>
-                        <li>7</li>
-                        <li>8</li>
-                        <li>9</li>
-                        <li>10</li>
-                        <li>11</li>
-                        <li>12</li>
-                        <li>13</li>
-                        <li>14</li>
-                        <li>15</li>
-                        <li>16</li>
-                        <li>17</li>
-                        <li>18</li>
-                        <li>19</li>
-                        <li>21</li>
-                        <li>22</li>
-                        <li>23</li>
-                        <li>24</li>
-                        <li>25</li>
-                        <li>26</li>
-                        <li>27</li>
-                        <li>28</li>
-                        <li>29</li>
-                        <li>30</li>
-                        <li class="inactive-day">1</li>
-                        <li class="inactive-day">2</li>
-                        <li class="inactive-day">3</li>
-                        <li class="inactive-day">4</li>
-                        <li class="inactive-day">5</li>
-                        <li class="inactive-day">6</li>
-                        <li class="inactive-day">7</li>
-                        <li class="inactive-day">8</li>
-                        <li class="inactive-day">9</li>
-                        
-                    </ul>
+                    <!-- JS Pone los Días Aquí -->
+                    <ul class="days"></ul>
                 </div>
             </div>
         </div>

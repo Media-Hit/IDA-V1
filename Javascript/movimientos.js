@@ -1,3 +1,118 @@
+const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+const currentDate = new Date();
+let currentDay = currentDate.getDate();
+let currentMonthIndex = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+updateCalendar();
+
+//Botones mes anterior y Siguiente
+const prevMonthBtn = document.querySelector("#prevMonth");
+const nextMonthBtn = document.querySelector("#nextMonth");
+const currentMonth = document.getElementById("current-month");
+const currentYearElement = document.getElementById("current-year");
+
+prevMonthBtn.addEventListener("click", showPreviousMonth);
+nextMonthBtn.addEventListener("click", showNextMonth);
+
+
+function showPreviousMonth() {
+    currentMonthIndex--;
+
+    if (currentMonthIndex < 0) {
+        currentMonthIndex = 11; // Vuelve al índice del último mes (diciembre)
+        currentYear--; // Resta 1 al año actual
+      }
+
+      currentMonth.textContent = months[currentMonthIndex];
+      currentYearElement.textContent = currentYear;
+
+      updateCalendar();
+}
+
+function showNextMonth() {
+    currentMonthIndex++;
+
+    if (currentMonthIndex > 11) {
+        currentMonthIndex = 0; // Vuelve al índice del primer mes (enero)
+        currentYear++; // suma 1 al año actual
+      }
+
+      currentMonth.textContent = months[currentMonthIndex];
+      currentYearElement.textContent = currentYear;
+
+      updateCalendar();
+
+}
+
+//Actualización de los días del Calendario
+
+function updateCalendar() {
+    const daysList = document.querySelector(".days");
+    daysList.innerHTML = ""; // Elimina todos los elementos <li> existentes
+  
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+    const totalDays = getDaysInMonth(currentMonthIndex, currentYear);
+  
+    for (let day = 1; day <= totalDays; day++) {
+      const li = document.createElement("li");
+      
+      li.textContent = day;
+      daysList.appendChild(li);
+      
+      if (day === currentDay && currentMonthIndex === currentMonth && currentYear === currentYear) {
+        li.classList.add("selected-day");
+      }
+    }
+  }
+  
+  
+  // Función para obtener el número de días en un mes específico
+  function getDaysInMonth(month, year) {
+    return new Date(year, month + 1, 0).getDate();
+  }
+  
+
+
+
+
+// Día seleccionado sombreado
+//// Obtén la lista de elementos <li> dentro del <ul> con la clase "days"
+const daysInCurrentMonth = document.querySelectorAll(".days li");
+
+daysInCurrentMonth.forEach(function(day) {
+  day.addEventListener("click", function() {
+    daysInCurrentMonth.forEach(function(day) {
+      day.classList.remove("selected-day");
+    });
+    this.classList.add("selected-day");
+  });
+});
+
+
+//Dia Actual Seleccionado
+function defaultCurrentDaySelection() {
+
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const totalDays = getDaysInMonth(currentMonthIndex, currentYear);
+  
+    for (let day = 1; day <= totalDays; day++) {
+      const li = document.createElement("li");
+      if (day > 1 && day < totalDays) {
+        li.classList.add("inactive-day");
+      }
+
+      li.textContent = day;
+      daysList.appendChild(li);
+    }
+  }
+  
+
+
+
+
 // Que aparezca el listado
 
 let movimientosList = [];
@@ -106,3 +221,4 @@ for (movimiento of movimientosList){
     let listContainer = document.querySelector('.movimientos-list');
     listContainer.innerHTML += movListItem;
 }
+

@@ -47,10 +47,9 @@
 
 .calendar-left-header i {
     font-size: 20px;
-    height: 38px;
-    width: 38px;
+    width: 28px;
     text-align: center;
-    line-height: 42px;
+    line-height: 25px;
     border-radius: 5px;
     cursor: pointer;
 }
