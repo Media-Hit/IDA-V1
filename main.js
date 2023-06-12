@@ -13,3 +13,6 @@ window.addEventListener('load', function(){
         menuMobile.classList.toggle('active');
     });
 });
+
+const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+console.log(lastDayOfMonth);
