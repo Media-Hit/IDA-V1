@@ -133,6 +133,38 @@
     background-color: var(--Media-Hit-Pink);
 }
 
+/* PopUp de Meses */
+.Months-Popup {
+    position: absolute;
+    border-radius: 5px;
+    padding: 20px;
+    width: 200px;
+   
+    /* height: auto; */
+}
+
+.Months-Popup ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-inline-start: 0;
+    color: var(--IDA-Tittles-Color);
+    align-items: center;
+ }
+
+.Months-Popup li {
+    position: relative;
+    width: calc((100% / 3) - 24px);
+    background-color: var(--Media-Hit-Light-Grey);
+    text-align: center;
+    list-style: none;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    
+}
+
 
 
 /* Lista de Movimientos */
