@@ -14,5 +14,3 @@ window.addEventListener('load', function(){
     });
 });
 
-const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
-console.log(lastDayOfMonth);

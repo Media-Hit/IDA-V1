@@ -64,19 +64,20 @@ function updateHeaderDate() {
 function updateCalendar() {
   let daysList = document.querySelector(".days");
   daysList.innerHTML = ""; // Elimina todos los elementos <li> existentes
-  const currentMonth = currentMonthIndex; // Obtiene el índice del mes actual
+  let currentMonth = currentMonthIndex; // Obtiene el índice del mes actual
   
-  const totalDays = getDaysInMonth(currentMonth, currentYear);
-  const firstDay = new Date(currentYear, currentMonth, 1).getDay(); // Obtiene el día de la semana en que inicia el mes
+  let totalDays = getDaysInMonth(currentMonth, currentYear);
+  let firstDay = new Date(currentYear, currentMonth, 1).getDay(); // Obtiene el día de la semana en que inicia el mes
 
   let firstRowInactiveDaysCount = 0;
+  
+  let previousMonth = currentMonth === 0 ? 11 : currentMonth - 1; // Obtiene el índice del mes anterior
+  let previousYear = currentMonth === 0 ? currentYear - 1 : currentYear; // Obtiene el año del mes anterior
+  let totalDaysPreviousMonth = getDaysInMonth(previousMonth, previousYear);
+  let startDay = totalDaysPreviousMonth - (firstDay - 1); // Calcula el día en que inicia el mes anterior
 
   // Agrega los días correspondientes al mes anterior si el mes no inicia en domingo (día 0)
   if (firstDay > 0) {
-    const previousMonth = currentMonth === 0 ? 11 : currentMonth - 1; // Obtiene el índice del mes anterior
-    const previousYear = currentMonth === 0 ? currentYear - 1 : currentYear; // Obtiene el año del mes anterior
-    const totalDaysPreviousMonth = getDaysInMonth(previousMonth, previousYear);
-    const startDay = totalDaysPreviousMonth - (firstDay - 1); // Calcula el día en que inicia el mes anterior
 
     for (let day = startDay; day <= totalDaysPreviousMonth; day++) {
       const li = document.createElement("li");
@@ -104,19 +105,20 @@ function updateCalendar() {
   }
 
   //Agregar los días del mes siguiente
-    //Obtener el último día del mes actual
-    const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
-
-    //Calcular los días del mes siguiente que se deben mostrar
     
-    const daysInLastRow = 7 - (lastDayOfMonth + firstRowInactiveDaysCount) % 7;
+    const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate(); 
 
-    for (let i = 1; i <= daysInLastRow; i++) {
-      const li = document.createElement('li');
-      li.textContent = i;
-      li.classList.add("inactive-day");
-      daysList.appendChild(li);
-    } 
+
+  //Calcular los días del mes siguiente que se deben mostrar
+  const lastDaysToPrint = 7 * Math.ceil((totalDays + (totalDaysPreviousMonth - startDay + 1)) / 7) - (totalDays + (totalDaysPreviousMonth - startDay));
+
+  //Escribir los días del mes siguiente  
+  for (let i = 1; i < lastDaysToPrint; i++) {
+    const li = document.createElement('li');
+    li.textContent = i;
+    li.classList.add("inactive-day");
+    daysList.appendChild(li);
+  } 
 
 }
 
