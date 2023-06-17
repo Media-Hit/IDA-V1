@@ -3,8 +3,8 @@ const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto
 const currentDate = new Date();
 const currentDay = currentDate.getDate();
 
-let currentMonthIndex = new Date().getMonth();
-let currentYear = new Date().getFullYear();
+var currentMonthIndex = new Date().getMonth();
+var currentYear = new Date().getFullYear();
 
 window.addEventListener('load', function(){
   currentMonthBtn.textContent = months[currentMonthIndex];
@@ -13,8 +13,6 @@ window.addEventListener('load', function(){
 
 updateCalendar();
 sombrearDiaSeleccionado();
-
-
 
 //Botones mes anterior y Siguiente
 const prevMonthBtn = document.querySelector("#prevMonth");
@@ -97,7 +95,7 @@ function updateCalendar() {
       currentMonth === currentDate.getMonth() &&
       currentYear === currentDate.getFullYear()
     ) {
-      li.classList.add("selected-day");
+      li.classList.add("today-day");
     }
 
     li.textContent = day;

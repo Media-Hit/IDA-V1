@@ -18,7 +18,7 @@
     background-color: var(--White);
 }
 
-.calendar-container header {
+.calendar-flex header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,50 +27,21 @@
     padding-bottom: 16px !important;
 }
 
-.calendar-left-header {
+.calendar-left-header, .calendar-right-header {
     display: flex;
     align-items: center;
+    flex-direction: row;
 }
-
 
 .current-month {
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 5px;
+    padding-right: 5px;
     margin: 0;
-    cursor: pointer;
-}
-
-.current-month:hover {
-    background-color: var(--Media-Hit-Light-Grey);
-}
-
-.calendar-left-header i {
-    font-size: 20px;
-    width: 28px;
-    text-align: center;
-    line-height: 25px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.calendar-left-header i:hover {
-    background-color: var(--Media-Hit-Light-Grey);
 }
 
 .current-year {
-    cursor: pointer;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 5px;
     margin: 0;
-
 }
-
-.current-year:hover {
-    background-color: var(--Media-Hit-Light-Grey);
-}
-
 
 .calendar-flex .icons {
   display: none;      
@@ -132,6 +103,10 @@
 .days li.selected-day::before {
     background-color: var(--Media-Hit-Pink);
 }
+
+li.today-day::before {
+    border: 1px solid var(--Media-Hit-Dark-Grey);
+  }
 
 /* PopUp de Meses */
 .Months-Popup {
@@ -196,17 +171,6 @@
     flex-direction: row;
     align-items: center;
     gap: 5px;
-}
-
-
-.interface-icon {
-    padding: 8px 8px 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.interface-icon:hover {
-    background-color: var(--Media-Hit-Light-Grey);
 }
 
 .movimientos-list{
@@ -368,9 +332,6 @@
         top: 40px;
     }
 
-    .current-year{
-        display: none;
-    }
     .calendar-flex .icons {
         display: block;      
     }
