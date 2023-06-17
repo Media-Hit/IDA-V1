@@ -111,18 +111,28 @@ li.today-day::before {
 /* PopUp de Meses */
 .Months-Popup {
     position: absolute;
-    border-radius: 5px;
-    padding: 20px;   
+    top: 50px;
+    left: 250px;
+    z-index: 1;
+    padding: 20px;
+    background-color: var(--White);   
 }
 
-.Months-Popup div:first-child {
+.Months-Popup .header {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding-bottom: 8px;
     margin-bottom: 8px;
     border-bottom: 1px solid var(--IDA-Border);
+}
+
+.Months-Popup .year-selecton-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
 }
 
 #selected-year {
@@ -373,5 +383,19 @@ li.today-day::before {
         display: none;
     }
 
-
+     /* Popup Meses */
+     .Months-Popup {
+        position: absolute;
+        top: 20px;
+        left: 20px;  
+    }
   }
+
+  @media screen and (max-width: 1000px) {
+    /* Popup Meses */
+    .Months-Popup {
+        position: absolute;
+        top: 90px;
+        left: 50px;  
+    }
+}
