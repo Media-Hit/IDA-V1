@@ -14,14 +14,16 @@ window.addEventListener('load', function(){
 updateCalendar();
 sombrearDiaSeleccionado();
 
-//Botones mes anterior y Siguiente
+//Botones mes anterior, Siguiente y hoy
 const prevMonthBtn = document.querySelector("#prevMonth");
 const nextMonthBtn = document.querySelector("#nextMonth");
+const todayBtn = document.querySelector("#today-btn");
 const currentMonthBtn = document.getElementById("current-month");
 const currentYearElement = document.getElementById("current-year");
 
 prevMonthBtn.addEventListener("click", showPreviousMonth);
 nextMonthBtn.addEventListener("click", showNextMonth);
+todayBtn.addEventListener("click", showCurrentMonth);
 
 
 function showPreviousMonth() {
@@ -50,6 +52,15 @@ function showNextMonth() {
       updateCalendar();
       sombrearDiaSeleccionado();
 
+}
+
+function showCurrentMonth() {
+  currentMonthIndex = new Date().getMonth();
+  currentYear = new Date().getFullYear();
+
+  updateHeaderDate();
+  updateCalendar();
+  sombrearDiaSeleccionado();
 }
 
 function updateHeaderDate() {
@@ -164,6 +175,75 @@ function defaultCurrentDaySelection() {
     }
   }
   
+
+//Popup de Meses y Año
+
+const prevYear = document.querySelector('#prevYear');
+const selectedYear = document.querySelector('#selected-year');
+const nextYear = document.querySelector('#nextYear');
+
+prevYear.addEventListener("click", showPreviousYear);
+nextYear.addEventListener("click", showNextYear);
+
+
+function showPreviousYear() {
+  currentYear--;
+  console.log(currentYear);
+
+  updateMonthsBox();
+  updateHeaderDate();
+  updateCalendar();
+  sombrearDiaSeleccionado();
+}
+
+function showNextYear() {
+  currentYear++;
+  console.log(currentYear);
+
+
+  updateMonthsBox();
+  updateHeaderDate();
+  updateCalendar();
+  sombrearDiaSeleccionado();
+}
+
+
+
+function updateMonthsBox() {
+
+  selectedYear.textContent = currentYear;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

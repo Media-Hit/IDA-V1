@@ -23,6 +23,7 @@
     --IDA-Fondo-Gris: #2e3e4e;
     --IDA-Texto-Sobre-Fondo: #b6bcc2;
     --IDA-Muted-Grey: #00000050;
+    --IDA-Border:  #00000020;
 }
 
 body {
@@ -81,10 +82,6 @@ body {
 .grey-btn:hover {
     background-color: var(--Media-Hit-Light-Grey);
 }
-
-
-
-
 
 /* Menú Principal */
 
