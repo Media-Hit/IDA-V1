@@ -38,6 +38,8 @@ function showPreviousMonth() {
       updateHeaderDate();
       updateCalendar();
       sombrearDiaSeleccionado();
+      updateMonthsBox();
+
 }
 
 function showNextMonth() {
@@ -51,6 +53,7 @@ function showNextMonth() {
       updateHeaderDate();
       updateCalendar();
       sombrearDiaSeleccionado();
+      updateMonthsBox();
 
 }
 
@@ -61,6 +64,8 @@ function showCurrentMonth() {
   updateHeaderDate();
   updateCalendar();
   sombrearDiaSeleccionado();
+  updateMonthsBox();
+
 }
 
 function updateHeaderDate() {
@@ -178,17 +183,24 @@ function defaultCurrentDaySelection() {
 
 //Popup de Meses y Año
 
+const CalendarHeaderLeft = document.querySelector('.calendar-left-header');
+const monthsList = document.querySelectorAll('#months-list li');
+
+const MonthsPopup = document.querySelector('.months-popup');
 const prevYear = document.querySelector('#prevYear');
 const selectedYear = document.querySelector('#selected-year');
 const nextYear = document.querySelector('#nextYear');
+const closeMonthsPopup = document.querySelector('#close-months-popup');
 
 prevYear.addEventListener("click", showPreviousYear);
 nextYear.addEventListener("click", showNextYear);
+closeMonthsPopup.addEventListener('click', HideMonthsPopup);
+CalendarHeaderLeft.addEventListener('click', showMonthsPopup);
 
+updateMonthsBox();
 
 function showPreviousYear() {
   currentYear--;
-  console.log(currentYear);
 
   updateMonthsBox();
   updateHeaderDate();
@@ -198,8 +210,6 @@ function showPreviousYear() {
 
 function showNextYear() {
   currentYear++;
-  console.log(currentYear);
-
 
   updateMonthsBox();
   updateHeaderDate();
@@ -207,15 +217,37 @@ function showNextYear() {
   sombrearDiaSeleccionado();
 }
 
-
-
-function updateMonthsBox() {
-
-  selectedYear.textContent = currentYear;
-
+function HideMonthsPopup() {
+  MonthsPopup.classList.add("inactive");
 }
 
+function showMonthsPopup() {
+  MonthsPopup.classList.remove("inactive");
+}
 
+function updateMonthsBox() {
+  selectedYear.textContent = currentYear;
+  sombrearMesSeleccionado();
+}
+
+// Asignar el evento click a cada elemento <li>
+monthsList.forEach((month, index) => {
+  month.addEventListener('click', () => {
+    currentMonthIndex = index;
+    updateHeaderDate();
+    updateCalendar();
+    sombrearDiaSeleccionado();
+    sombrearMesSeleccionado();
+    });
+});
+
+//Sombrear el mes seleccionado
+function sombrearMesSeleccionado(){
+  for (var i = 0; i < monthsList.length; i++) {
+    monthsList[i].classList.remove("popup-selected-month");
+  }
+  monthsList[currentMonthIndex].classList.add("popup-selected-month");
+}
 
 
 

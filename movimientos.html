@@ -58,17 +58,17 @@
                 </div>
             </div>
 
-            <div class="Months-Popup box-shadow">
+            <div class="months-popup box-shadow inactive">
                 <header>
-                    <div class="year-selecton-box">
+                    <div class="year-selection-box">
                         <i id="prevYear" class="fi fi-br-angle-left interface-icon"></i>
-                        <p id="selected-year">1996</p>
+                        <p id="selected-year"></p> <!-- Mostrar Año -->
                         <i id="nextYear" class="fi fi-br-angle-right interface-icon"></i>
                     </div>
-                    <i id="nextYear" class="fi fi-br-angle-right interface-icon"></i>
+                    <i id="close-months-popup" class="fi fi-br-x interface-icon"></i>
                 </header>
                 
-                <ul>
+                <ul id="months-list">
                     <li>Ene</li>
                     <li>Feb</li>
                     <li>Mar</li>
@@ -83,7 +83,6 @@
                     <li>Dec</li>
                 </ul>
             </div>
-
         </div>
 
         <!-- Movimientos (DER) -->

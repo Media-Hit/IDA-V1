@@ -109,7 +109,7 @@ li.today-day::before {
   }
 
 /* PopUp de Meses */
-.Months-Popup {
+.months-popup {
     position: absolute;
     top: 50px;
     left: 250px;
@@ -118,7 +118,7 @@ li.today-day::before {
     background-color: var(--White);   
 }
 
-.Months-Popup .header {
+.months-popup header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -128,22 +128,28 @@ li.today-day::before {
     border-bottom: 1px solid var(--IDA-Border);
 }
 
-.Months-Popup .year-selecton-box {
+.months-popup .year-selection-box {
     display: flex;
     flex-direction: row;
     align-items: center;
    
 }
 
+#close-months-popup {
+    display: flex; 
+    padding-bottom: 8px; 
+    color: var(--IDA-Muted-Grey);
+}
+
+
 #selected-year {
     font-size: 1.45rem;
     font-weight: 300;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px;
     margin: 0;
 }
 
-.Months-Popup ul {
+.months-popup ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -154,28 +160,29 @@ li.today-day::before {
     margin: 0;
  }
 
-.Months-Popup li {
+.months-popup li {
     text-align: center;
     list-style: none;
     text-decoration: none;
     border-radius: 5px;
     padding: 10px 20px;
+    cursor: pointer;
 }
 
-.Months-Popup li:hover {
+.months-popup li:hover {
     background-color: var(--Media-Hit-Light-Grey);
 }
 
-.popup-this-selected-month {
+.popup-selected-month {
     color: var(--White);
     background-color: var(--Media-Hit-Pink);
 }
 
-.popup-this-selected-month:hover {
+.popup-selected-month:hover {
     background-color: var(--Media-Hit-Pink) !important;
 }
 
-.popup-this-month {
+.popup-current-month {
     border: 1px solid var(--IDA-Border);
 }
 
@@ -350,9 +357,8 @@ li.today-day::before {
 
 
 
-/* Estilos Celular */
-
-@media screen and (max-width: 800px) {
+/* Vista Celular */
+@media (max-width: 800px) {
     .movimientos-page {
       grid-template-columns: 1fr;
       padding: 0;
@@ -384,17 +390,18 @@ li.today-day::before {
     }
 
      /* Popup Meses */
-     .Months-Popup {
+     .months-popup {
         position: absolute;
         top: 20px;
         left: 20px;  
     }
   }
 
-  @media screen and (max-width: 1000px) {
+/* Vista Tablet */
+@media (min-width: 801px) and (max-width: 1000px) {
     /* Popup Meses */
-    .Months-Popup {
-        position: absolute;
+    .months-popup {
+        position: absolute; 
         top: 90px;
         left: 50px;  
     }
